@@ -1,0 +1,21 @@
+\date{2025-11-09T21:31:20Z}
+\author{sebastianttaylor}
+\title{MPC Double Pendulum Controller}
+
+\p{This project was a crude attempt at writing a controller for a reasonably complex system. The repository is [here](https://github.com/STaylorPi/DoublePendulum). The controller can sucessfully stabilise the system around all three unstable equilibriums.}
+
+\p{The project also included handwritten code for a rotary encoder and motor driver, with a view to put this into action on real hardware. If I were to do this again, I'd change the control scheme (a less expensive controller like an LQR would work well around the equilibriums, and there are stability results that I could reasonably rely on.).}
+
+\p{A robust implementation of the system would have to include a statistical model and characterisation of the sensors, including noise. Cost constraints meant that building a high-enough performance rig here was unfortunately not feasible.}
+
+\figure{
+	\<html:img>[width]{300px}[src]{\route-asset{assets/20240213_204314.jpg}}
+	\<html:img>[width]{300px}[src]{\route-asset{assets/20240215_125833.jpg}}
+	\<html:img>[width]{600px}[src]{\route-asset{assets/IMG-20240216-WA0000.jpeg}}
+	\figcaption{The gantry assembly.}
+}
+
+\figure{
+	\<html:video>[width]{300px}[type]{"video/mp4"}[src]{\route-asset{assets/20240216_171907_1.mp4}}
+	\figcaption{The gantry in action.}
+}

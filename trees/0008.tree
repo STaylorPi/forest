@@ -1,0 +1,27 @@
+\date{2025-11-02T20:01:56Z}
+
+\title{idt}
+\author{sebastianttaylor}
+
+\p{Documentation for files [idt.h](https://github.com/STaylorPi/VGA-Driver/blob/master/idt.h), [idt.asm](https://github.com/STaylorPi/VGA-Driver/blob/master/idt.asm), [idt.c](https://github.com/STaylorPi/VGA-Driver/blob/master/idt.c)}
+
+\code{void null_handler()}
+\p{This interrupt handler does nothing}
+
+\code{void asm_handler()}
+\p{Currently a test handler wrapping the \code{cool_handler} ISR}
+
+\code{void load_idt(void* desc)}
+\p{Similar to \code{load_gdt}, this function loads our descriptor table at \code{desc} into the CPU's IDTR register}
+
+\code{void write_null_idt_entry(void* loc, uint16_t num)}
+\p{This code loads \code{num} null IDT entries (calling the \code{null_handler}) to address \code{loc}}
+
+\code{void load_idt_entry(void* loc, const struct IDT_entry* entry)}
+\p{Lays out the \code{entry} according the proper descriptor layout at \code{loc}}
+
+\code{void cool_handler()}
+\p{Do not call directly, since this function is not wrapped properly with \code{iret}. Currently prints the results of keypresses in VGA text mode \code{0x03}}
+
+\code{void setup_idt()}
+\p{Loads the current test IDT to location \code{0x1100}}

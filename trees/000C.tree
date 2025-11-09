@@ -1,0 +1,15 @@
+\date{2025-11-03T22:24:16Z}
+
+\title{utils}
+\author{sebastianttaylor}
+
+\p{Documentation for files [utils.h](https://github.com/STaylorPi/VGA-Driver/blob/master/utils.h), [utils.c](https://github.com/STaylorPi/VGA-Driver/blob/master/utils.c)}
+
+\code{void* memset(void* dest, int ch, size_t count)}
+\p{Standard LibC style memset function}
+
+\code{void* memcpy(void* dest, const void* src, size_t n)}
+\p{Standard LibC style memcpy function}
+
+\code{size_t strlen(const char* str)}
+\p{Standard LibC style strlen function}

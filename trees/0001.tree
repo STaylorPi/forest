@@ -1,0 +1,20 @@
+\date{2025-11-02T17:27:20Z}
+\title{On Writing an Operating System}
+\author{sebastianttaylor}
+
+\p{I set out in summer 2025 to write a toy operating system on x86. The repository is [here](https://www.github.com/STaylorPi/VGA-Driver). This has been a fun project so far, with the development cycle consisting mostly of reading the manual for some hardware feature, then implementing and debugging interface code. It's taught me a great deal about how multi-faceted old platforms like x86 become, especially after having to read [datasheets from the 80s](https://pdos.csail.mit.edu/6.828/2005/readings/hardware/8259A.pdf).}
+
+\p{The [OSDev Wiki](https://wiki.osdev.org) page has been indispensible, and my main reference for the project}
+
+\p{I have written some documentation for the project so far: here it is file-by-file}
+
+\put\transclude/expanded{false}
+
+\transclude{0006}
+\transclude{0007}
+\transclude{0008}
+\transclude{0009}
+\transclude{000A}
+\transclude{000B}
+\transclude{000C}
+\transclude{000D}

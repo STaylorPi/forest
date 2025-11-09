@@ -1,0 +1,21 @@
+\date{2025-11-02T18:08:31Z}
+
+\title{gdt}
+\author{sebastianttaylor}
+
+\p{Documentation for files [gdt.h](https://github.com/STaylorPi/VGA-Driver/blob/master/gdt.h), [gdt.asm](https://github.com/STaylorPi/VGA-Driver/blob/master/gdt.asm) and [gdt.c](https://github.com/STaylorPi/VGA-Driver/blob/master/gdt.c)}
+
+\code{void place_gdt_entry(const struct GDT_entry* data, void* addr)}
+\p{This function lays out the data field in the proper way for a Global	Descriptor Table entry at the place \code{addr}}
+
+\code{void load_basic_gdt(void* addr)}
+\p{This function lays a bare-bones GDT at \code{addr}, featuring kernel code, kernel data, user code, user data segments and one task state segment}
+
+\code{uint16_t get_gdtr_limit()}
+\p{Extracts the limit member for the GDT from the currently loaded GDT in the CPU}
+
+\code{uint32_t get_gdtr_base()}
+\p{Extracts the address of the start of the currently loaded GDT}
+
+\code{void load_gdt(const struct GDT_descriptor* desc)}
+\p{Points the CPU GDTR to the GDT described by \code{desc}}

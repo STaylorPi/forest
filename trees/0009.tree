@@ -1,0 +1,36 @@
+\date{2025-11-02T20:19:26Z}
+
+\title{kernel}
+\author{sebastianttaylor}
+
+\p{File contains rudimentary VGA mode \code{0x03} terminal output. Documentation for file [kernel.c](https://github.com/STaylorPi/VGA-Driver/blob/master/kernel.c)}
+
+\code{void terminal_initialise()}
+\p{}
+
+\code{void terminal_setcolour(uint8_t colour)}
+\p{Sets colour for next characters, \code{colour} is an offset into the currently loaded colour palette in the VGA}
+
+\code{void terminal_putentryat(char c, uint8_t colour, size_t x, size_t y)}
+\p{}
+
+\code{void terminal_scroll()}
+\p{}
+
+\code{void terminal_putchar(char c)}
+\p{Supports newlines, tabs and backspaces}
+
+\code{void terminal_write(const char* data, size_t size)}
+\p{}
+
+\code{void terminal_writestring(const char* data)}
+\p{}
+
+\code{void println()}
+\p{}
+
+\code{void print_hex[32|16|8](uint[32|16|8]_t in)}
+\p{Fixed-width hex literal printing}
+
+\code{void print_vga_registers(const struct vga_regs_t* data)}
+\p{Text annotated output of current VGA state}

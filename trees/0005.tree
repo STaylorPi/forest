@@ -1,0 +1,22 @@
+\date{2025-11-02T18:08:31Z}
+
+\title{basic_io}
+\author{sebastianttaylor}
+
+\p{Documentation for file [basic_io.h](https://github.com/STaylorPi/VGA-Driver/blob/master/basic_io.h)}
+
+\code{uint8_t in8(uint16_t port)}
+
+\p{Calls the x86 instruction \code{in} reading from \code{port} in the IO address space}
+
+\code{uint8_t out8(uint16_t port, uint8_t data)}
+
+\p{Calls the x86 instruction \code{out} to write the byte \code{data} to the IO port \code{port}}
+
+\code{void cli()}
+
+\p{Direct alias for x86 \code{cli}}
+
+\code{void sti()}
+
+\p{Direct alias for x86 \code{sti}}

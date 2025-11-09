@@ -1,0 +1,9 @@
+\date{2025-11-02T20:31:15Z}
+
+\title{keyboard}
+\author{sebastianttaylor}
+
+\p{Documentation for files [keyboard.h](https://github.com/STaylorPi/VGA-Driver/blob/master/keyboard.h), [keyboard.c](https://github.com/STaylorPi/VGA-Driver/blob/master/keyboard.c)}
+
+\code{struct KeyEvent to_ascii(uint8_t scan_code)}
+\p{Converts the scancode coming off the interrupt into an ascii value, plus key event state}

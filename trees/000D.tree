@@ -1,0 +1,52 @@
+\date{2025-11-03T22:27:02Z}
+
+\title{utils}
+\author{sebastianttaylor}
+
+\p{Documentation for files [vga.h](https://github.com/STaylorPi/VGA-Driver/blob/master/vga.h), [vga.c](https://github.com/STaylorPi/VGA-Driver/blob/master/vga.c). See [[0005]] for [vga.asm](https://github.com/STaylorPi/VGA-Driver/blob/master/vga.asm)}
+
+\code{static inline uint8_t vga_entry_colour(enum vga_colour gf, enum vga_colour bg)}
+\p{Merges VGA 0x03 mode colour enums into a writable byte}
+
+\code{static inline uint16_t vga_entry(unsigned char uc, uint8_t colour)}
+\p{Merges a character and a colour into an unsigned short writable to the VGA memory buffer}
+
+\code{struct vga_regs_t read_vga_registers()}
+\p{Reads the important registers from the VGA}
+
+\code{void write_vga_registers(const struct vga_regs_t* data)}
+\p{Unchecked write of the new register map \code{data} to the VGA}
+
+\code{void vga_disable_display()}
+\p{Blanks the display}
+
+\code{void vga_enable_display()}
+\p{Unblanks the display}
+
+\code{uint8_t vga_read_attrib_reg(uint8_t idx)}
+\p{The Attribute registers in the VGA have a special reading/writing protocol making use of the same register for both index select and data output. Function reads the attribute register at index \code{idx}.}
+
+\code{void vga_write_attrib_reg(uint8_t idx, uint8_t data)}
+\p{See above. Function writes a byte to the specified attribute register in the VGA}
+
+\code{void vga_unlock_crtc()}
+\p{Allows writes to the CRT controller registers on the VGA}
+
+\code{void vga_lock_crtc()}
+\p{Blocks writes to the CRT controller registers on the VGA}
+
+\code{void set_vga_mode_0x13()}
+\p{Sets the graphical display mode to 0x13, 320x200 pixels}
+
+\code{void vga_draw_cool_pattern()}
+\p{>:D}
+
+\code{struct vga_colour_t vga_read_palette(uint8_t entry)}
+\p{Reads the DAC's palette on the VGA at the given index}
+
+\code{void vga_write_palette(uint8_t entry, struct vga_colour_t new_col)}
+\p{Write the DAC's palette with the given colour. Note that only the lower 6 bits are used in each colour channel.}
+
+\code{void vga_write_palette256()}
+\p{Writes the standard 0x13 256-colour palette to the VGA}
+

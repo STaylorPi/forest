@@ -1,0 +1,22 @@
+\date{2025-11-09T22:13:14Z}
+
+\author{sebastianttaylor}
+\title{The Wave Function Collapse Algorithm}
+
+\p{This algorithm is a very neat constrained procedural terrain generation routine.}
+
+\p{\strong{The Problem.}}
+\p{We are given a grid of cells (cast over any number of dimensions), each with a number (\em{the Reference}).}
+
+\p{We are tasked with returning a new grid of cells (with arbitrary dimensions), such that the distribution of neighbour numbers for each number is as close to the Reference as possible (Cells are neighbours if they share an edge (2D) or a face (3D)).}
+
+\p{This is a surprisingly effective way to emulate the small-scale features of terrain over a large map.}
+
+\p{\strong{The Algorithm.}}
+
+In broad terms:
+
+\ol
+{
+\li{From the reference, }
+}

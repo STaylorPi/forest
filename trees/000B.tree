@@ -1,0 +1,21 @@
+\date{2025-11-03T22:12:43Z}
+
+\title{pic_8259}
+\author{sebastianttaylor}
+
+\p{Documentation for files [pic_8259.h](https://github.com/STaylorPi/VGA-Driver/blob/master/pic_8259.h), [pic_8259.c](https://github.com/STaylorPi/VGA-Driver/blob/master/pic_8259.c). This unit is a Programmable Interrupt Controller of which there are two in modern CPUs. Each can issue 8 distinct hardware interrupts, mapped to some offset in the 256-entry IDT. This is a fascinating little device that has been around as far as I can tell unchanged since the 1980s.}
+
+\code{void pic8259_unmask()}
+\p{This code removes sets all mask bits for both PICs to zero}
+
+\code{void pic8259_disable()}
+\p{Sets all mask bits. Must be used if we wish to use the APIC.}
+
+\code{void pic8259_mask(uint16_t mask)}
+\p{Writes out a new mask. Low byte goes to PIC1, high byte to PIC2.}
+
+\code{void pic8259_init(uint8_t off_master, uint8_t off_slave)}
+\p{Initialises both PICs, mapping them to the given offsets in the IDT}
+
+\code{void pic8259_end_of_interrupt(uint8_t irq)}
+\p{Instructs the PIC that interrupt \code{irq} has been handled}

@@ -1,0 +1,24 @@
+\date{2025-11-02T19:49:59Z}
+
+\title{graphics}
+\author{sebastianttaylor}
+
+\p{A rudimentary graphics library designed to write to the VGA buffer. Documentation for files [graphics.h](https://github.com/STaylorPi/VGA-Driver/blob/master/graphics.h), [graphics.c](https://github.com/STaylorPi/VGA-Driver/blob/master/graphics.c)}
+
+\code{WinFormat}
+\p{Struct describing memory layout for the VGA buffer. Note that double buffering is employed, with the VGA memory being at \code{ren_buf} and back-buffer draw memory being at \code{draw_buf}}
+
+\code{void set_layout(const struct WinFormat* fmt)}
+\p{Sets the (private) static state of the display configuration \code{fmt}}
+
+\code{void clear()}
+\p{Clears the \code{draw_buf}}
+
+\code{void swap()}
+\p{Swaps the buffers, leaving \code{draw_buf} in-tact}
+
+\code{void set_pixel(uint16_t x, uint16_t, pixel_t colour)}
+\p{Draws a single pixel at the specified location with VGA colour \code{colour}. Don't use for drawing bigger shapes for performance reasons}
+
+\code{void draw_rect(uint16_t xtl, uint16_t ytl, uint16_t w, uint16_t h, pixel_t colour)}
+\p{Filled rectangle}
