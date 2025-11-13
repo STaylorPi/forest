@@ -6,7 +6,7 @@
 \p{This algorithm is a very neat constrained procedural terrain generation routine.}
 
 \p{\strong{The Problem.}}
-\p{We are given a grid of cells (cast over any number of dimensions), each with a number (\em{the Reference}).}
+\p{We are given a grid of cells (cast over any number of dimensions) (\em{the Reference #{R}}), each with a number.}
 
 \p{We are tasked with returning a new grid of cells (with arbitrary dimensions), such that the distribution of neighbour numbers for each number is as close to the Reference as possible (Cells are neighbours if they share an edge (2D) or a face (3D)).}
 
@@ -14,9 +14,14 @@
 
 \p{\strong{The Algorithm.}}
 
-In broad terms:
+\p{In broad terms:}
 
 \ol
 {
-\li{From the reference, }
+\li{For each unique number label in the Reference and for each neighbour direction, compute the probability of each number appearing.}
+\li{Initialise each cell in the output grid into a \em{superposition} of states. A superposition is a probability distribution, giving the chance of the cell "collapsing" to a given value.}
+\li{If there is no cell that is fully collapsed, choose a random one and generate its collapsed state from its distribution.}
+\li{Recursively propagate distributions from any collapsed cells.}
 }
+
+\p{Some cells may end up in a state with a zero distribution. These cells fail to generate.}
