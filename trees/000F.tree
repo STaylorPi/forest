@@ -3,10 +3,10 @@
 \author{sebastianttaylor}
 \title{The Wave Function Collapse Algorithm}
 
-\p{This algorithm is a very neat constrained procedural terrain generation routine.}
+\p{\em{This algorithm is a very neat constrained procedural terrain generation routine.}}
 
 \p{\strong{The Problem.}}
-\p{We are given a grid of cells (cast over any number of dimensions) (\em{the Reference #{R}}), each with a number.}
+\p{We are given a grid of cells (cast over any number of dimensions) (\em{the Reference #{R}}), each with a number label #{x}.}
 
 \p{We are tasked with returning a new grid of cells (with arbitrary dimensions), such that the distribution of neighbour numbers for each number is as close to the Reference as possible (Cells are neighbours if they share an edge (2D) or a face (3D)).}
 
@@ -18,10 +18,35 @@
 
 \ol
 {
-\li{For each unique number label in the Reference and for each neighbour direction, compute the probability of each number appearing.}
+\li{For each unique number label #{x} in the Reference, compute #{\mathbb{P}_{\mathbf{d}, x}(N=x_n)}, the probability of the neighbour #{N} on the edge #{\mathbf{d}} taking on the value #{x_n}. For example, in 2D, #{\mathbf{d}} can be (0, 1), (0, -1), (1, 0) or (-1, 0).}
+
 \li{Initialise each cell in the output grid into a \em{superposition} of states. A superposition is a probability distribution, giving the chance of the cell "collapsing" to a given value.}
+
 \li{If there is no cell that is fully collapsed, choose a random one and generate its collapsed state from its distribution.}
-\li{Recursively propagate distributions from any collapsed cells.}
+
+\li{Recursively propagate distributions from any collapsed cells, asking what their distributions are given the contents of their neighbours.}
 }
 
 \p{Some cells may end up in a state with a zero distribution. These cells fail to generate.}
+
+\p{\strong{Notes on the Implementation.}}
+
+\p{There are two basic building blocks, a \code{Pattern}, representing the neighbour distributions of a single type (dirt, stone or sky for example). In our generation map, there are a series of \code{Cell}s, each having their own distribution.}
+
+\p{The challenge here is that the number of unique tile types in the reference is effectively dynamic. This suggests a memory layout:}
+
+\p{\code{struct Cell { std::vector<double> dist; // ... };}}
+
+\p{\code{template <size_t D> struct Pattern
+
+{ std::array<std::vector<double>, D*2> neighbour_dists; };}}
+
+\p{Where \code{D} is the dimension. We then have a \code{vector} of \code{Cell}s which we update according to the algorithm.}
+
+\p{While this approach will certainly work, each cell having a pointer indirect to somewhere else on the heap is a rather silly memory layout. We can make all the cell data contiguous at the small cost of having to specify a maximum number of texture types \code{N} at compile time:}
+
+\p{\code{template<size_t N> struct Cell { std::array<double, N> dist; // ... };}}
+
+\p{\code{template <size_t D, size_t N> struct Pattern
+
+{ std::array<std::array<double, N>, D*2> neighbour_dists; };}}

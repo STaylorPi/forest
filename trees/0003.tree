@@ -2,3 +2,6 @@
 \title{Non-Technical Notes}
 
 \p{A small collection of my thoughts and experiences.}
+
+\put\transclude/expanded{false}
+\transclude{000G}
