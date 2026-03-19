@@ -1,0 +1,8 @@
+\date{2026-01-06T20:21:00Z}
+
+\title{CREST Silver and Gold Awards (2021)}
+\author{sebastianttaylor}
+
+\p{These two awards were given to me in 2021 simultaneously for the project of "Building, Programming and Controlling a Quadcopter". I turned in a [37-page report](http://sttaylor.net/crest.pdf) on the project.}
+
+\p{This was a naive 14/15 year old attempt at an integrated control system, and I refined the project after the award increasing the motor DAC resolution to 12 bits and the Python to C++.}

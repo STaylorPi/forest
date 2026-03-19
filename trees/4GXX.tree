@@ -1,0 +1,14 @@
+\date{2026-01-06T20:04:56Z}
+
+\author{sebastianttaylor}
+
+\title{My NEAT Implementation (2022)}
+
+\p{The NEAT (NeuroEvolution of Augmenting Topologies) algorithm is an effective genetic neuro-evolution algorithm from MIT. The original paper is [here](https://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf). It's approach is to split the population into different "species", so that topological improvements in the neural nets (which will initially reduce fitness) are allowed to evolve in their own niche.}
+
+\p{I wrote an implementation of the algorithm ([here](https://github.com/STaylorPi/NEAT)) and managed to tune it to fairly robustly balance a pole:}
+
+\figure{
+	\<html:video>[controls]{}[width]{600px}[type]{"video/mp4"}[src]{\route-asset{assets/NEAT.mp4}}
+	\figcaption{the network swings up and balances a pole}
+}
